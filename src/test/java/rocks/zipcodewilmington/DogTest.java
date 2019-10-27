@@ -36,7 +36,7 @@ public class DogTest {
 
     @Test
     public void setNameTest(){
-        Dog dog = new Dog(null, null, null);
+        Dog dog = new Dog("Otis", null, null);
         String expected = "Otis";
         String actual = dog.getName();
         Assert.assertEquals(expected,actual);
@@ -52,9 +52,9 @@ public class DogTest {
 
     @Test
     public void setBirthDateTest(){
-        Dog dog = new Dog(null, null, null);
+        Dog dog = new Dog(null, new Date(), null);
         Date expected = new Date();
-        Date actual = dog.setBirthDate(expected);
+        Date actual = dog.getBirthDate();
         Assert.assertEquals(expected,actual);
     }
 
@@ -62,13 +62,13 @@ public class DogTest {
     public void eatTest(){
         Dog dog = new Dog(null, null, null);
         String expected = "Beef";
-        String actual = dog.eat();
+        String actual = Food.beef();
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void getIDTest(){
-        Dog dog = new Dog(null, null, null);
+        Dog dog = new Dog(null, null, 12231021);
         Integer expected = 12231021;
         Integer actual = dog.getId();
         Assert.assertEquals(expected, actual);

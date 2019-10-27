@@ -5,11 +5,11 @@ package rocks.zipcodewilmington;
  */
 public class Food {
 
-    public String beef() {
+    public static String beef() {
         return "Beef";
     }
 
-    public String fish(){
+    public static String fish(){
         return "Fish";
     }
 }

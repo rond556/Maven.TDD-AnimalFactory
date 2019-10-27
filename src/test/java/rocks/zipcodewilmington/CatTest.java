@@ -22,7 +22,7 @@ public class CatTest {
 
     @Test
     public void setNameTest(){
-        Cat cat = new Cat(null,null,null);
+        Cat cat = new Cat("Milo",null,null);
         String expected = "Milo";
         String actual = cat.getName();
         Assert.assertEquals(expected,actual);
@@ -38,9 +38,9 @@ public class CatTest {
 
     @Test
     public void setBirthDateTest(){
-        Cat cat = new Cat(null,null,null);
+        Cat cat = new Cat(null,new Date(),null);
         Date expected = new Date();
-        Date actual = cat.setBirthDate();
+        Date actual = cat.getBirthDate();
         Assert.assertEquals(expected,actual);
     }
 
@@ -48,13 +48,13 @@ public class CatTest {
     public void eatTest(){
         Cat cat = new Cat(null,null,null);
         String expected = "Fish";
-        String actual = cat.eat();
+        String actual = Food.fish();
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void getIDTest(){
-        Cat cat = new Cat(null,null,null);
+        Cat cat = new Cat(null,null,34345);
         Integer expected = 34345;
         Integer actual = cat.getId();
         Assert.assertEquals(expected, actual);
