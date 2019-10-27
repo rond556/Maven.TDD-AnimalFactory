@@ -1,6 +1,8 @@
 package rocks.zipcodewilmington;
 
+import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.Dog;
 import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
 
@@ -15,8 +17,18 @@ public class AnimalFactoryTest {
 
     @Test
     public void createDogTest(){
-        Dog dog = AnimalFactory.createDog(null, null);
+        String expectedName = "Otis";
+        Date expectedbirthDate = new Date();
+        Dog dog = AnimalFactory.createDog(expectedName,expectedbirthDate);
+        Assert.assertEquals(true, dog instanceof Dog);
+    }
 
-        }
+    @Test
+    public void createCatTest(){
+        String expectedName = "Milo";
+        Date expectedbirthDate = new Date();
+        Cat cat = AnimalFactory.createCat(expectedName,expectedbirthDate);
+        Assert.assertEquals(true, cat instanceof Cat);
+    }
     }
 

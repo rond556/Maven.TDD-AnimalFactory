@@ -47,9 +47,9 @@ public class CatTest {
     @Test
     public void eatTest(){
         Cat cat = new Cat(null,null,null);
-        String expected = "Fish";
-        String actual = Food.fish();
-        Assert.assertEquals(expected,actual);
+        Integer expected = cat.getNumberOfMealsEaten() +1;
+        cat.eat(new Food());
+        Assert.assertEquals(expected,cat.getNumberOfMealsEaten());
     }
 
     @Test
