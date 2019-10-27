@@ -13,4 +13,6 @@ public class Dog extends Mammal {
     public String speak() {
         return "bark!";
     }
+
+    public String eat(){return "Beef";};
 }

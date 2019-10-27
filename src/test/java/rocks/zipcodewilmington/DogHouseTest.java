@@ -20,7 +20,7 @@ public class DogHouseTest {
     @Test
     public void testGetNumberOfDogs() {
         // Given (some
-        String name = "Milo";
+        String name = "Otis";
         Date birthDate = new Date();
         Dog animal = AnimalFactory.createDog(name, birthDate);
         DogHouse.clear();

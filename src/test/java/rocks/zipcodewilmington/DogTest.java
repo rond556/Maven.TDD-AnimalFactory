@@ -2,7 +2,11 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Dog;
+import rocks.zipcodewilmington.animals.Mammal;
+
+import java.util.Date;
 
 /**
  * @author leon on 4/19/18.
@@ -17,10 +21,24 @@ public class DogTest {
     // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
 
     @Test
+    public void constructorTest(){
+        String givenName = "Otis";
+        Date givenBirthDate = new Date();
+        Integer givenId = 3434;
+        Dog dog = new Dog(givenName, givenBirthDate, givenId);
+        String retrievedName = dog.getName();
+        Date retrievedBirthDate = dog.getBirthDate();
+        Integer retrievedId = dog.getId();
+        Assert.assertEquals(givenName, retrievedName);
+        Assert.assertEquals(givenBirthDate, retrievedBirthDate);
+        Assert.assertEquals(givenId, retrievedId);
+    }
+
+    @Test
     public void setNameTest(){
         Dog dog = new Dog(null, null, null);
-        String expected = "Max";
-        String actual = dog.setName();
+        String expected = "Otis";
+        String actual = dog.getName();
         Assert.assertEquals(expected,actual);
     }
 
@@ -29,14 +47,14 @@ public class DogTest {
         Dog dog = new Dog(null, null, null);
         String expected = "bark!";
         String actual = dog.speak();
-        Assert.assertEquals((expected, actual));
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void setBirthDateTest(){
         Dog dog = new Dog(null, null, null);
-        String expected = "Oct. 21";
-        String actual = dog.setBirthDate();
+        Date expected = new Date();
+        Date actual = dog.setBirthDate(expected);
         Assert.assertEquals(expected,actual);
     }
 
@@ -51,8 +69,8 @@ public class DogTest {
     @Test
     public void getIDTest(){
         Dog dog = new Dog(null, null, null);
-        String expected = "12231021";
-        String actual = dog.getID();
+        Integer expected = 12231021;
+        Integer actual = dog.getId();
         Assert.assertEquals(expected, actual);
     }
 
@@ -60,7 +78,7 @@ public class DogTest {
     public void animalInheritanceTest(){
         Dog dog = new Dog(null, null, null);
         boolean expected = true;
-        boolean actual = dog.instanceOf(animal);
+        boolean actual = dog instanceof Animal;
         Assert.assertEquals(expected, actual);
     }
 
@@ -68,21 +86,7 @@ public class DogTest {
     public void mammalInheritanceTest(){
         Dog dog = new Dog(null, null, null);
         boolean expected = true;
-        boolean actual = dog.instanceOf(mammal);
+        boolean actual = dog instanceof Mammal;
         Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void setNameTest() {
-        // Given (a name exists and a dog exists)
-        Dog dog = new Dog(null, null, null);
-        String givenName = "Milo";
-
-        // When (a dog's name is set to the given name)
-        dog.setName(givenName);
-
-        // Then (we expect to get the given name from the dog)
-        String dogName = dog.getName();
-        Assert.assertEquals(dogName, givenName);
     }
 }
